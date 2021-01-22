@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <title>NLP Aylien Article Web Tool</title>
+    <!-- Meta Tags for HTML page. -->
+    <meta
+      name="description"
+      content="NLP Article Analyzer Web Tool (Alfred NLP Analyzer)"
+    />
+    <meta
+      name="keywords"
+      content="NLP Api, Aylien, Sentimental Analysis, Dynamic features"
+    />
+    <meta name="author" content="Ahmed Ibrahim" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *"
+    />
+    <link rel="stylesheet" href="/styles/resets.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+  </head>
+  <body>
+    <header>
+      <div class="main-logo">Logo</div>
+      <nav class="page-menu">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Analyzer</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <form class="" onsubmit="return handleSubmit(event)">
+          <input
+            id="name"
+            type="text"
+            name="input"
+            value=""
+            onblur="onBlur()"
+            placeholder="Name"
+          />
+          <input
+            type="submit"
+            name=""
+            value="submit"
+            onclick="return handleSubmit(event)"
+            onsubmit="return handleSubmit(event)"
+          />
+        </form>
+      </section>
 
-    <body>
+      <section>
+        <strong>Form Results:</strong>
+        <div id="results"></div>
+      </section>
+    </main>
 
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
-
-        <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
-            </section>
-
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
-            </section>
-        </main>
-
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-
-    </body>
+    <footer>
+      <p>This is the footer</p>
+    </footer>
+  </body>
 </html>

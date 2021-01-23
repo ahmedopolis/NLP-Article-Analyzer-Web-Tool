@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="/styles/footer.css" />
   </head>
   <body>
+    <!-- Element block containing for navigation bar. -->
     <header>
       <div class="main-logo">Logo</div>
       <nav class="page-menu">
@@ -39,14 +40,17 @@
     </header>
     <main>
       <section>
+        <div class="about">ABOUT</div>
+      </section>
+      <section>
         <form class="" onsubmit="return handleSubmit(event)">
           <input
-            id="name"
+            id="text-url"
             type="text"
             name="input"
             value=""
             onblur="onBlur()"
-            placeholder="Name"
+            placeholder="Enter your text's URL"
           />
           <input
             type="submit"
@@ -57,13 +61,14 @@
           />
         </form>
       </section>
-
       <section>
         <strong>Form Results:</strong>
         <div id="results"></div>
       </section>
+      <section>
+        <div class="contact">CONTACT</div>
+      </section>
     </main>
-
     <footer>
       <p>This is the footer</p>
     </footer>

@@ -1,7 +1,7 @@
 # Alfred NLP Analyzer :computer: :bar_chart: :scroll:
 
-![Application Logo](NLP-web-tool-blue.svg)
-![Api Logo](Aylien-api-brightgreen.svg)
+![Application Logo](images\Aylien-api-brightgreen.svg)
+![Api Logo](images\Aylien-api-brightgreen.svg)
 </br>
 The herein repository host the necessary assets for a NLP web tool called "Alfred NLP Analyzer". It consists of an application enabling users to conduct sentimental analysis on text found in a given URL. The data analysis process is conducted by Aylien's NLP data pipeline accessed via its api.
 

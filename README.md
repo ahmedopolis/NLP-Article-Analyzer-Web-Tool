@@ -74,9 +74,7 @@ Replace the following command:
 
 ```json
 "scripts": {
-    ...
     "start": "node src/server/index.js",
-    ...
 },
 ```
 
@@ -84,9 +82,7 @@ With the following:
 
 ```json
 "scripts": {
-    ...
     "devStart": "nodemon src/server/server.js",
-    ...
 },
 ```
 
@@ -114,6 +110,14 @@ In package.json, add a build npm script as:
 "scripts": {
     "build": "webpack"
 },
+```
+
+### Install 'Babel'
+
+Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript. The following tool must be installed at the same level as your webpack js files. Use 'pwd' on the your CLI to confirm it. To install Babel, use the following command.
+
+```bash
+npm i -D @babel/core @babel/preset-env babel-loader
 ```
 
 ## Examples

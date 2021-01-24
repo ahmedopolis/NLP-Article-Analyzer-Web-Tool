@@ -5,15 +5,42 @@
     font-size: 30px;
 }
 
-form {
-    border: 1px solid #545454;
-    border-radius: 5px;
-    padding: 40px;
-}
-
 input {
+    background-color: #5754ff;
     padding: 5px 20px;
+    color: #f2f2f2;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
     width: 100%;
     line-height: 16px;
     margin: 10px 0;
 }
+
+input:hover{
+    background-color: darkmagenta;
+}
+/* Style for Placeholder Text*/
+::placeholder { 
+    color: #f2f2f2;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+} 
+
+#results-section{
+    margin-top: 10px;
+    font-family: 'Potta One', cursive;
+    font-size: 38px;
+    padding: 5px;
+}
+
+#results{
+    margin-top: 10px;
+    background-color: #5754ff;
+    color: #f2f2f2;
+    padding: 15px;
+    box-shadow: 5px 10px lightgray;
+
+}
+

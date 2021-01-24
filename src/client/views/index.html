@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="\src\client\styles\header.css" />
     <link rel="stylesheet" href="\src\client\styles\form.css" />
     <link rel="stylesheet" href="\src\client\styles\resets.css" />
-    <!-- Load Google Fonts -->
+    <!-- Load Google Fonts  -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"
@@ -72,7 +72,7 @@
         <div class="form-title">
           <h2>Do you want to conduct sentimental analysis on your text?</h2>
         </div>
-        <form class="" onsubmit="return handleSubmit(event)">
+        <form onsubmit="return handleSubmit(event)">
           <input
             id="text-url"
             type="text"
@@ -83,17 +83,30 @@
           <input
             type="submit"
             name="submit-button"
-            value="submit"
+            value="SUBMIT"
             onclick="return handleSubmit(event)"
             onsubmit="return handleSubmit(event)"
           />
         </form>
       </section>
       <section id="results-section">
-        <div class="form-title">
+        <!-- <div class="form-title">
           <h2>Form Results:</h2>
         </div>
-        <div id="results"></div>
+        <div id="results">
+          <div id="polarity-result">
+            <p><strong>Polarity: </strong>"neutral"</p>
+          </div>
+          <div id="polarity-confidence-result">
+            <p><strong>Polarity-Confidence: </strong>"neutral"</p>
+          </div>
+          <div id="subjectivity-result">
+            <p><strong>Subjectivity: </strong>"neutral"</p>
+          </div>
+          <div id="subjectivity-confidence-result">
+            <p><strong>Subjectivity-Confidence: </strong>"neutral"</p>
+          </div>
+        </div> -->
       </section>
     </main>
     <!-- Footer of page  -->

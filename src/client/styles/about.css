@@ -1,0 +1,32 @@
+#about-section {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    grid-template-rows: repeat(1, 400px);
+    grid-gap: 40px;
+    justify-content: center;
+  }
+
+  #about-text h2{
+    color: #5754ff;
+    font-family: Libre Baskerville, serif;
+    font-weight: Bold;
+    font-size: 30px;
+    text-align: left;
+    overflow: hidden;
+  }
+
+  #about-text p{
+    padding-top: 10px;
+    font-family: Open Sans;
+    font-weight: Regular;
+    font-size: 20px;
+    opacity: 1;
+    text-align: left;
+  }
+
+  #about-image img {
+    border-radius: 8px;
+    width: 400px;
+    height: 400px;
+  }

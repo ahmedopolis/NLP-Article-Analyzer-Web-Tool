@@ -1,3 +1,4 @@
+
 title{
     display: none;
 }
@@ -10,4 +11,30 @@ body {
     background-color: #f2f2f2;
     font-size: 1.7rem;
     min-height: 100vh;
+    align-items: center;
 }
+
+.app-container{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    "about about about"
+    "form form form"
+    "results results results";
+}
+
+#about-section{
+    grid-area: about;
+    
+}
+
+#form-section{
+    grid-area: form;
+}
+
+#results-section{
+    grid-area: results;
+}
+
+

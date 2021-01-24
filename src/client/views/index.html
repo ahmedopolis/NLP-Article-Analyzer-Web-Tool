@@ -14,18 +14,26 @@
     />
     <meta name="author" content="Ahmed Ibrahim" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Meta Tag for Consent Security Policy -->
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src *;
    img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
    style-src  'self' 'unsafe-inline' *"
     />
+    <!-- All style sheets linked below -->
     <link rel="stylesheet" href="\src\client\styles\about.css" />
     <link rel="stylesheet" href="\src\client\styles\base.css" />
     <link rel="stylesheet" href="\src\client\styles\footer.css" />
     <link rel="stylesheet" href="\src\client\styles\header.css" />
     <link rel="stylesheet" href="\src\client\styles\form.css" />
     <link rel="stylesheet" href="\src\client\styles\resets.css" />
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Element block containing for navigation bar. -->
@@ -34,18 +42,36 @@
         <div class="main-logo">
           <a href="#"><h4>AlFRED.NLP</h4></a>
         </div>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Analyzer</a></li>
-        </ul>
       </nav>
     </header>
     <!-- Element block having container for about section, URL prompt and results  -->
-    <main>
-      <section>
-        <div class="about">ABOUT</div>
+    <main class="app-container">
+      <section id="about-section">
+        <div id="about-text">
+          <h2>Transform the world's news into real-time business insight</h2>
+          <p>
+            Identify and investigate risks and opportunities by harnessing media
+            signals at scale. Harnessing the business insight hidden in news
+            content requires an army of engineers and data scientists. Our
+            end-to-end pipeline aggregates, understands and delivers the world's
+            news as clean ingestible structured data feeds. Our research powered
+            NLP models understand and tag thousands of articles every minute.
+            Enhance your news powered applications, processes, and models with
+            enriched and structured news feeds and insights. We provide 26
+            unique filters and searchable tags along with advanced analytics
+            functions that provide enhanced search and analysis. We always put
+            developer experience first. Get started in minutes with our SDKs and
+            comprehensive docs!
+          </p>
+        </div>
+        <div id="about-image">
+          <img src="images/data-processing-image.svg" />
+        </div>
       </section>
-      <section>
+      <section id="form-section">
+        <div class="form-title">
+          <h2>Do you want to conduct sentimental analysis on your text?</h2>
+        </div>
         <form class="" onsubmit="return handleSubmit(event)">
           <input
             id="text-url"
@@ -63,16 +89,15 @@
           />
         </form>
       </section>
-      <section>
-        <strong>Form Results:</strong>
+      <section id="results-section">
+        <div class="form-title">
+          <h2>Form Results:</h2>
+        </div>
         <div id="results"></div>
       </section>
     </main>
     <!-- Footer of page  -->
     <footer>
-      <div class="main-logo">
-        <a href="#"><h4 id="footer-logo">AlFRED.NLP</h4></a>
-      </div>
       <div id="footer-text">
         2021 &#169; ALFRED.NLP INC. All Right reserved.
       </div>

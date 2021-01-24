@@ -1,3 +1,7 @@
+$font-stack-1: Libre Baskerville, serif;
+$primary-color: #5754ff;
+$secondary-color: #f2f2f2;
+$tertiary-color: darkmagenta;
 
 title{
     display: none;
@@ -8,7 +12,7 @@ html{
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: $secondary-color;
     font-size: 1.7rem;
     min-height: 100vh;
     align-items: center;

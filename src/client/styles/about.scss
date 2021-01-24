@@ -1,3 +1,8 @@
+$font-stack-1: Libre Baskerville, serif;
+$primary-color: #5754ff;
+$secondary-color: #f2f2f2;
+$tertiary-color: darkmagenta;
+
 #about-section {
     padding: 10px;
     display: grid;
@@ -5,18 +10,18 @@
     grid-template-rows: repeat(1, 400px);
     grid-gap: 40px;
     justify-content: center;
-  }
+}
 
-  #about-text h2{
-    color: #5754ff;
-    font-family: Libre Baskerville, serif;
+#about-text {
+  h2{
+    color: $primary-color;
+    font-family: $font-stack-1;
     font-weight: Bold;
     font-size: 30px;
     text-align: left;
     overflow: hidden;
   }
-
-  #about-text p{
+  p{
     padding-top: 10px;
     font-family: Open Sans;
     font-weight: Regular;
@@ -24,9 +29,11 @@
     opacity: 1;
     text-align: left;
   }
+}
 
-  #about-image img {
-    border-radius: 8px;
-    width: 400px;
-    height: 400px;
-  }
+
+#about-image img {
+  border-radius: 8px;
+  width: 400px;
+  height: 400px;
+}

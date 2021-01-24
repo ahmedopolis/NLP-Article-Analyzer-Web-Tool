@@ -20,24 +20,27 @@
    img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
    style-src  'self' 'unsafe-inline' *"
     />
-    <link rel="stylesheet" href="/styles/resets.css" />
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/header.css" />
-    <link rel="stylesheet" href="/styles/form.css" />
-    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="\src\client\styles\about.css" />
+    <link rel="stylesheet" href="\src\client\styles\base.css" />
+    <link rel="stylesheet" href="\src\client\styles\footer.css" />
+    <link rel="stylesheet" href="\src\client\styles\header.css" />
+    <link rel="stylesheet" href="\src\client\styles\form.css" />
+    <link rel="stylesheet" href="\src\client\styles\resets.css" />
   </head>
   <body>
     <!-- Element block containing for navigation bar. -->
     <header>
-      <div class="main-logo">Logo</div>
-      <nav class="page-menu">
+      <nav class="nav-page">
+        <div class="main-logo">
+          <a href="#"><h4>AlFRED.NLP</h4></a>
+        </div>
         <ul>
           <li><a href="#">About</a></li>
           <li><a href="#">Analyzer</a></li>
-          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
     </header>
+    <!-- Element block having container for about section, URL prompt and results  -->
     <main>
       <section>
         <div class="about">ABOUT</div>
@@ -47,14 +50,13 @@
           <input
             id="text-url"
             type="text"
-            name="input"
-            value=""
+            name="input[url]"
             onblur="onBlur()"
-            placeholder="Enter your text's URL"
+            placeholder="Please enter your text's URL"
           />
           <input
             type="submit"
-            name=""
+            name="submit-button"
             value="submit"
             onclick="return handleSubmit(event)"
             onsubmit="return handleSubmit(event)"
@@ -65,12 +67,35 @@
         <strong>Form Results:</strong>
         <div id="results"></div>
       </section>
-      <section>
-        <div class="contact">CONTACT</div>
-      </section>
     </main>
+    <!-- Footer of page  -->
     <footer>
-      <p>This is the footer</p>
+      <div class="main-logo">
+        <a href="#"><h4 id="footer-logo">AlFRED.NLP</h4></a>
+      </div>
+      <div id="footer-text">
+        2021 &#169; ALFRED.NLP INC. All Right reserved.
+      </div>
+      <div class="social-media">
+        <a href="#">
+          <img src="images/facebook-logo.svg" />
+        </a>
+        <a href="#">
+          <img src="images/pinterest-logo.svg" />
+        </a>
+        <a href="#">
+          <img src="images/tiktok-logo.svg" />
+        </a>
+        <a href="#">
+          <img src="images/instagram-logo.svg" />
+        </a>
+        <a href="#">
+          <img src="images/youtube-logo.svg" />
+        </a>
+        <a href="#">
+          <img src="images/twitter-logo.svg" />
+        </a>
+      </div>
     </footer>
   </body>
 </html>

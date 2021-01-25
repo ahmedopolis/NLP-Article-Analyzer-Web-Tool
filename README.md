@@ -120,6 +120,38 @@ Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a
 npm i -D @babel/core @babel/preset-env babel-loader
 ```
 
+### Install 'HtmlWebPackPlugin'
+
+Use the following command, to install the 'HtmlWebPackPlugin'.
+
+```bash
+npm i -D html-webpack-plugin
+```
+
+### Install 'CleanWebpackPlugin'
+
+Use the following command, to install the 'CleanWebpackPlugin'.
+
+```bash
+npm i -D clean-webpack-plugin
+```
+
+### Install a style-loader
+
+To convert the sass files to css files for the browser to process, use the following command line.
+
+```bash
+npm i -D style-loader node-sass css-loader sass-loader
+```
+
+### Install a google-fonts-webpack-plugin
+
+To add the plugin to add google fonts via Webpack, use the following cli.
+
+```bash
+npm install google-fonts-webpack-plugin
+```
+
 ## Examples
 
 ## Tools

@@ -152,6 +152,14 @@ To add the plugin to add google fonts via Webpack, use the following cli.
 npm install google-fonts-webpack-plugin
 ```
 
+### Install AYLIEN library
+
+To add the api's library, use the following command.
+
+```bash
+npm install aylien-news-api
+```
+
 ## Examples
 
 ## Tools

@@ -112,6 +112,30 @@ In package.json, add a build npm script as:
 },
 ```
 
+### Install 'webpack-dev-server'
+
+To use webpack with a development server that provides live reloading. This should be used for development only.
+
+```bash
+npm install webpack-dev-server --save-dev
+```
+
+### Add to npm scripts
+
+In package.json, add a build npm script as:
+
+```json
+"scripts": {
+"start:dev": "webpack-dev-server"
+},
+```
+
+And run the following in your terminal/console:
+
+```bash
+npm run start:dev
+```
+
 ### Install 'Babel'
 
 Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript. The following tool must be installed at the same level as your webpack js files. Use 'pwd' on the your CLI to confirm it. To install Babel, use the following command.

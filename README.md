@@ -91,7 +91,7 @@ With the following:
 Use the following line, to install the 'jest' library as a development dependency. As unit testing, is not conducted in production mode.
 
 ```bash
-npm install node-fetch
+npm install --save-dev jest
 ```
 
 ### Install node-fetch
@@ -99,7 +99,7 @@ npm install node-fetch
 Use the following command to add a light-weight module that brings window.fetch to Node.js.
 
 ```bash
-npm i webpack webpack-cli
+npm install node-fetch
 ```
 
 ### Add the static module bundler, namely 'Webpack'

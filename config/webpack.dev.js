@@ -7,7 +7,11 @@ module.exports = {
   entry: "./src/client/index.js",
   mode: "development",
   devtool: "source-map",
-  stats: "verbose",
+  watch: true,
+  devServer: {
+    inline: true,
+    port: 8080,
+  },
   module: {
     rules: [
       {
@@ -26,8 +30,15 @@ module.exports = {
         use: ["file-loader"],
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: "url-loader?limit=100000",
+        test: /\.svg$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              encoding: false,
+            },
+          },
+        ],
       },
     ],
   },

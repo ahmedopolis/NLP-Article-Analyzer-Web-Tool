@@ -1,30 +1,27 @@
 {
   "name": "nlp-article-analyzer-web-tool",
   "version": "1.0.0",
-  "description": "a sentimental analysis web tool to extract information from texts ",
-  "main": "webpack.config.js",
+  "description": "A web tool for sentimental analysis",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/server/index.js",
-    "devStart": "nodemon src/server/index.js",
-    "build": "webpack",
+    "start:dev": "webpack-dev-server",
     "build-prod": "webpack --config config/webpack.prod.js",
     "build-dev": "webpack-dev-server  --config config/webpack.dev.js --open",
-    "dev": "webpack serve --mode development --env development",
-    "serve": "webpack serve --config config/webpack.dev.js --progress --profile --watch --content-base src/"
+    "start": "webpack serve",
+    "devStart": "webpack serve  --config config/webpack.dev.js --open"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aimogue/NLP-Article-Analyzer-Web-Tool.git"
   },
   "keywords": [
-    "web",
-    "tool",
-    "nlp",
-    "sentimental",
-    "analysis"
+    "NLP",
+    "Sentimental",
+    "Analysis",
+    "Webpack"
   ],
-  "author": "ahmed ibrahim",
+  "author": "Ahmed Ibrahim",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aimogue/NLP-Article-Analyzer-Web-Tool/issues"
@@ -43,18 +40,15 @@
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
-    "dotenv": "^8.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.1",
     "jest": "^26.6.3",
     "node-sass": "^5.0.0",
-    "nodemon": "^2.0.7",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.18.0",
     "webpack-cli": "^4.4.0",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.7.3"
+    "webpack-dev-server": "^3.11.2"
   }
 }

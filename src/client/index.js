@@ -8,17 +8,17 @@ import "./styles/footer.scss";
 import "./styles/form.scss";
 import "./styles/header.scss";
 
-import "fonts/JapaneseRobot-0WWdX.ttf";
+//import "fonts/JapaneseRobot-0WWdX.ttf";
 
-import "images/data-processing-image.svg";
-import "images/facebook-logo.svg";
-import "images/instagram-logo.svg";
-import "images/pinterest-logo.svg";
-import "images/tiktok-logo.svg";
-import "images/twitter-logo.svg";
-import "images/youtube-logo.svg";
+import "./views/images/data-processing-image.svg";
+import "./views/images/facebook-logo.svg";
+import "./views/images/instagram-logo.svg";
+import "./views/images/pinterest-logo.svg";
+import "./views/images/tiktok-logo.svg";
+import "./views/images/twitter-logo.svg";
+import "./views/images/youtube-logo.svg";
 
-console.log(checkForName);
+export { checkForName, handleSubmit };
 
 alert("I EXIST");
 console.log("CHANGE!!");

@@ -91,7 +91,15 @@ With the following:
 Use the following line, to install the 'jest' library as a development dependency. As unit testing, is not conducted in production mode.
 
 ```bash
-npm i --save-dev jest
+npm install node-fetch
+```
+
+### Install node-fetch
+
+Use the following command to add a light-weight module that brings window.fetch to Node.js.
+
+```bash
+npm i webpack webpack-cli
 ```
 
 ### Add the static module bundler, namely 'Webpack'
@@ -168,12 +176,26 @@ To convert the sass files to css files for the browser to process, use the follo
 npm i -D style-loader node-sass css-loader sass-loader
 ```
 
+### Install file-loader
+
+The file-loader resolves import/require() on a file into a url and emits the file into the output directory.
+
+```bash
+npm install file-loader --save-dev
+```
+
 ### Install a google-fonts-webpack-plugin
 
 To add the plugin to add google fonts via Webpack, use the following cli.
 
 ```bash
 npm install google-fonts-webpack-plugin
+```
+
+### Install 'url-loader'
+
+```bash
+npm install url-loader --save-dev
 ```
 
 ### Install AYLIEN library

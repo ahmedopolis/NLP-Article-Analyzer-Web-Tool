@@ -26,8 +26,8 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
+        loader: "file-loader",
         exclude: /node_modules/,
-        use: ["file-loader"],
       },
       {
         test: /\.svg$/i,
@@ -49,6 +49,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
+      title: "Home",
       template: "./src/client/views/index.html",
       filename: "./index.html",
     }),

@@ -17,7 +17,6 @@ import "./views/images/pinterest-logo.svg";
 import "./views/images/tiktok-logo.svg";
 import "./views/images/twitter-logo.svg";
 import "./views/images/youtube-logo.svg";
-import "./views/images/a20a58d47297952653d68e5a32c37204b8-31-ghosts-boo.rsocial.w1200.jpg";
 
 export { checkForName, handleSubmit };
 

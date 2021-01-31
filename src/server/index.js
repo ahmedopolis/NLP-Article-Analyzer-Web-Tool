@@ -1,32 +1,21 @@
+// Store path
+let path = require("path");
+
 // Load-in env variables
 if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
+  require("dotenv").config({ path: ".env" });
 }
 
-// Call Aylien api library and store in variable
-let AylienNewsApi = require("aylien-news-api");
+// My Api key
+const localApiKey = process.env.API_KEy;
 
-//Create instance of 'AylienNewsApi
-let defaultClient = AylienNewsApi.ApiClient.instance;
-
-//Fetch ID data from 'dotenv'
-let localApiID = defaultClient.authentications["localApiID"];
-localApiID.apiKey = process.env["API_ID"];
-
-//Fetch key data from 'dotenv'
-let localApiKey = defaultClient.authentications["localApiKey"];
-localApiKey.apiKey = process.env["API_KEY"];
-
-console.log(localApiID);
-console.log(localApiID);
-
-var api = new AylienNewsApi.DefaultApi();
+// Function to concatenate the api url for the nlp analysis
+function concatenateApiURL(userURL) {
+  return `https://api.meaningcloud.com/sentiment-2.1?key=${localApiKey}&url=${userURL}&lang=en`;
+}
 
 // Setup empty JS object to act as endpoint for all routes
 let projectData = {};
-
-// File path
-let path = require("path");
 
 // Express to run server and routes
 const express = require("express");
@@ -34,7 +23,7 @@ const express = require("express");
 // External module to use fetch in Node js
 const fetch = require("node-fetch");
 
-// Store api js script
+// Store mock api js script
 const mockAPIResponse = require("./mockAPI.js");
 
 /* Dependencies & Middleware */
@@ -43,6 +32,13 @@ const cors = require("cors");
 
 const app = express();
 
+//Here we are configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Cors for cross origin allowance for proxy server
+app.use(cors());
+
 app.use(express.static("dist"));
 
 console.log(__dirname);
@@ -50,6 +46,51 @@ console.log(__dirname);
 app.get("/", function (req, res) {
   res.sendFile("dist/index.html");
 });
+
+app.get("/test", function (req, res) {
+  res.send(mockAPIResponse);
+});
+
+app.post("/apiData", addSentimentalData);
+
+// Combine data from user inputs and resulting api response
+function addSentimentalData(req, res) {
+  const userInput = req.body.userURL;
+  const fullApiURL = concatenateApiURL(userInput);
+  fetchSentimentalData(fullApiURL)
+    .then((data) => {
+      projectData = {
+        model: data.model,
+        score_tag: data.score_tag,
+        agreement: data.agreement,
+        subjectivity: data.subjectivity,
+        confidence: data.confidence,
+        irony: data.irony,
+      };
+    })
+    .then((newProjectData) => {
+      res.send(newProjectData);
+    });
+}
+
+// Function to fetch api response
+async function fetchSentimentalData(url) {
+  const response = await fetch(url);
+  try {
+    const responseData = await response.json();
+    return responseData;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Initialize all route with a callback function
+app.get("/apiData", sendData);
+
+// Callback function to complete GET '/all'
+function sendData(req, res) {
+  res.send(projectData);
+}
 
 // Setup server
 const port = 8080;
@@ -62,7 +103,3 @@ app.listen(port, listening);
 function listening() {
   console.log(`Server is running on http://${hostName}: ${port}`);
 }
-
-app.get("/test", function (req, res) {
-  res.send(mockAPIResponse);
-});

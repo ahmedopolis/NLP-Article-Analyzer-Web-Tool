@@ -60,29 +60,21 @@ Use the following line, to check for dependency vulnerabilities and potentially 
 npm audit fix
 ```
 
-### Add more modules to setup server
+### Add 'dotenv' module
 
-Use the following line, to add 'dotenv', and 'nodemon'.
+Use the following command line to add the 'dotenv' module.
 
 ```bash
-npm i --save-dev dotenv nodemon
+npm install dotenv
 ```
 
-### Update 'start' script in package.json
+### Add the following 'start' script in package.json
 
 Replace the following command:
 
 ```json
 "scripts": {
     "start": "node src/server/index.js",
-},
-```
-
-With the following:
-
-```json
-"scripts": {
-    "devStart": "nodemon src/server/server.js",
 },
 ```
 
@@ -116,7 +108,10 @@ In package.json, add a build npm script as:
 
 ```json
 "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "build-prod": "webpack --config config/webpack.prod.js",
+    "build-dev": "webpack-dev-server  --config config/webpack.dev.js --open",
+    "devStart": "webpack serve  --config config/webpack.dev.js --open"
 },
 ```
 
@@ -182,14 +177,6 @@ The file-loader resolves import/require() on a file into a url and emits the fil
 
 ```bash
 npm install file-loader --save-dev
-```
-
-### Install a google-fonts-webpack-plugin
-
-To add the plugin to add google fonts via Webpack, use the following cli.
-
-```bash
-npm install google-fonts-webpack-plugin
 ```
 
 ### Install 'url-loader'

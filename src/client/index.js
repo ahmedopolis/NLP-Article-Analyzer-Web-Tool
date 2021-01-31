@@ -8,8 +8,6 @@ import "./styles/footer.scss";
 import "./styles/form.scss";
 import "./styles/header.scss";
 
-//import "fonts/JapaneseRobot-0WWdX.ttf";
-
 import "./views/images/data-processing-image.jpg";
 export { checkForName, handleSubmit };
 

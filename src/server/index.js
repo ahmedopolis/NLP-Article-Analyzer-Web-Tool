@@ -4,7 +4,23 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 // Call Aylien api library and store in variable
-var AylienNewsApi = require("aylien-news-api");
+let AylienNewsApi = require("aylien-news-api");
+
+//Create instance of 'AylienNewsApi
+let defaultClient = AylienNewsApi.ApiClient.instance;
+
+//Fetch ID data from 'dotenv'
+let localApiID = defaultClient.authentications["localApiID"];
+localApiID.apiKey = process.env["API_ID"];
+
+//Fetch key data from 'dotenv'
+let localApiKey = defaultClient.authentications["localApiKey"];
+localApiKey.apiKey = process.env["API_KEY"];
+
+console.log(localApiID);
+console.log(localApiID);
+
+var api = new AylienNewsApi.DefaultApi();
 
 // Setup empty JS object to act as endpoint for all routes
 let projectData = {};

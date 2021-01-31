@@ -1,3 +1,6 @@
+// Import function to convert polarity response
+import { polarityChecker } from "../client/js/polarityChecker";
+
 // Store path
 let path = require("path");
 
@@ -30,6 +33,7 @@ const mockAPIResponse = require("./mockAPI.js");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+// Start up an instance of app
 const app = express();
 
 //Here we are configuring express to use body-parser as middle-ware.
@@ -39,14 +43,18 @@ app.use(bodyParser.json());
 // Cors for cross origin allowance for proxy server
 app.use(cors());
 
+// Connect the bundled folder
 app.use(express.static("dist"));
 
+// Print '__dirname'
 console.log(__dirname);
 
+// Send main html file via GET request
 app.get("/", function (req, res) {
   res.sendFile("dist/index.html");
 });
 
+// Route GET request for mock api
 app.get("/test", function (req, res) {
   res.send(mockAPIResponse);
 });
@@ -59,8 +67,10 @@ function addSentimentalData(req, res) {
   const fullApiURL = concatenateApiURL(userInput);
   fetchSentimentalData(fullApiURL)
     .then((data) => {
+      const convertedPolarity = polarityChecker(data.score_tag);
       projectData = {
         model: data.model,
+        polarity: convertedPolarity,
         score_tag: data.score_tag,
         agreement: data.agreement,
         subjectivity: data.subjectivity,

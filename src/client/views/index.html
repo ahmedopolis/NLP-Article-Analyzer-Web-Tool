@@ -14,13 +14,6 @@
     />
     <meta name="author" content="Ahmed Ibrahim" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Meta Tag for Consent Security Policy -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src *;
-   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
-   style-src  'self' 'unsafe-inline' *"
-    />
   </head>
   <body>
     <!-- Element block containing for navigation bar. -->
@@ -57,21 +50,20 @@
         <div class="form-title">
           <h2>Do you want to conduct sentimental analysis on your text?</h2>
         </div>
-        <form onsubmit="return handleSubmit(event)">
+        <form onsubmit="return Client.handleSubmit(event)">
           <input
             id="text-url"
             type="text"
             name="input[url]"
-            onblur="onBlur()"
+            value=""
             placeholder="Please enter your text's URL"
           />
           <input
             id="submit-button"
             type="submit"
-            name="submit-button"
             value="SUBMIT"
-            onclick="return handleSubmit(event)"
-            onsubmit="return handleSubmit(event)"
+            onclick="return Client.handleSubmit(event)"
+            onsubmit="return Client.handleSubmit(event)"
           />
         </form>
       </section>
@@ -83,12 +75,12 @@
           <div id="model-result">
             <p><strong>Models used: </strong>"neutral"</p>
           </div>
-          <div id="score-tag-result">
-            <p><strong>Score tag: </strong>"neutral"</p>
+          <div id="polarity-result">
+            <p><strong>Models used: </strong>"polarity"</p>
           </div>
-          <div id="agreement-result">
+          < id="agreement-result">
             <p><strong>Agreement: </strong>"neutral"</p>
-          </div>
+          </>
           <div id="subjectivity-result">
             <p><strong>Subjectivity: </strong>"neutral"</p>
           </div>
@@ -98,6 +90,12 @@
           <div id="irony-result">
             <p><strong>Irony: </strong>"neutral"</p>
           </div>
+          const dataModel = document.querySelector("#model-result");
+    const dataScoreTag = document.querySelector("#score-tag-result");
+    const dataAgreement = document.querySelector("#agreement-result");
+    const dataSubjectivity = document.querySelector("#subjectivity-result");
+    const dataConfidence = document.querySelector("#confidence-result");
+    const dataIrony = document.querySelector("#irony-result");
         </div> -->
       </section>
     </main>

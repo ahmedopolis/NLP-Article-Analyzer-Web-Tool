@@ -3,7 +3,7 @@
 ![Application Logo](images/NLP-web-tool-blue.svg)
 ![Api Logo](images/Aylien-api-brightgreen.svg)
 </br>
-The herein repository host the necessary assets for a NLP web tool called "Alfred NLP Analyzer". It consists of an application enabling users to conduct sentimental analysis on text found in a given URL. The data analysis process is conducted by Aylien's NLP data pipeline accessed via its api.
+The herein repository host the necessary assets for a NLP web tool called "Alfred NLP Analyzer". It consists of an application enabling users to conduct sentimental analysis on text found in a given URL. The data analysis process is conducted by Meaningcloud's NLP data pipeline accessed via its api.
 
 ## Table of Content
 
@@ -177,20 +177,6 @@ The file-loader resolves import/require() on a file into a url and emits the fil
 
 ```bash
 npm install file-loader --save-dev
-```
-
-### Install 'url-loader'
-
-```bash
-npm install url-loader --save-dev
-```
-
-### Install AYLIEN library
-
-To add the api's library, use the following command.
-
-```bash
-npm install aylien-news-api
 ```
 
 ## Examples

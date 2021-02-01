@@ -3,7 +3,7 @@ function handleSubmit(event) {
   event.preventDefault();
 
   let data = {};
-  let urlInput = document.querySelector("#text-url").value;
+  let urlInput = document.getElementById("text-url").value;
 
   data = {
     userURL: urlInput,

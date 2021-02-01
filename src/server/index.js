@@ -1,6 +1,3 @@
-// Import function to convert polarity response
-import { polarityChecker } from "../client/js/polarityChecker";
-
 // Store path
 let path = require("path");
 
@@ -65,22 +62,19 @@ app.post("/apiData", addSentimentalData);
 function addSentimentalData(req, res) {
   const userInput = req.body.userURL;
   const fullApiURL = concatenateApiURL(userInput);
-  fetchSentimentalData(fullApiURL)
-    .then((data) => {
-      const convertedPolarity = polarityChecker(data.score_tag);
-      projectData = {
-        model: data.model,
-        polarity: convertedPolarity,
-        score_tag: data.score_tag,
-        agreement: data.agreement,
-        subjectivity: data.subjectivity,
-        confidence: data.confidence,
-        irony: data.irony,
-      };
-    })
-    .then((newProjectData) => {
-      res.send(newProjectData);
-    });
+  fetchSentimentalData(fullApiURL).then((data) => {
+    const convertedPolarity = polarityChecker(data.score_tag);
+    projectData = {
+      model: data.model,
+      polarity: convertedPolarity,
+      score_tag: data.score_tag,
+      agreement: data.agreement,
+      subjectivity: data.subjectivity,
+      confidence: data.confidence,
+      irony: data.irony,
+    };
+    res.send(projectData);
+  });
 }
 
 // Function to fetch api response
@@ -92,6 +86,34 @@ async function fetchSentimentalData(url) {
   } catch (error) {
     console.error("Error:", error);
   }
+}
+
+/**
+ * Function to convert 'polarity' output from api to 'polarity word'.
+ * Originated from (https://www.meaningcloud.com/developer/sentiment-analysis/doc/2.1/response)
+ * */
+function polarityChecker(score) {
+  let display;
+  switch (score) {
+    case "P+":
+      display = "strong positive";
+      break;
+    case "P":
+      display = "positive";
+      break;
+    case "NEW":
+      display = "neutral";
+      break;
+    case "N":
+      display = "negative";
+      break;
+    case "N+":
+      display = "strong negative";
+      break;
+    case "NONE":
+      display = "no sentiment";
+  }
+  return display.toUpperCase();
 }
 
 // Initialize all route with a callback function

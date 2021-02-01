@@ -3,6 +3,7 @@ function handleSubmit(event) {
   event.preventDefault();
 
   let data = {};
+  let form = document.querySelector("form");
   let urlInput = document.getElementById("text-url").value;
 
   data = {
@@ -18,10 +19,12 @@ function handleSubmit(event) {
   }
 
   processUserData();
+  urlInput = "";
+  form.reset();
 
   /* Function to POST data */
   async function postData(url = "", data = {}) {
-    const req = await fetch(url, {
+    const res = await fetch(url, {
       method: "POST",
       mode: "cors",
       cache: "no-cache",
@@ -36,8 +39,8 @@ function handleSubmit(event) {
       }),
     });
     try {
-      const newRequest = req;
-      return newRequest;
+      const newData = await res.json();
+      return newData;
     } catch (error) {
       console.error("Error:", error);
     }
@@ -47,8 +50,8 @@ function handleSubmit(event) {
   async function getData(url = "") {
     const res = await fetch(url);
     try {
-      const weatherData = await res.json();
-      return weatherData;
+      const sentimentalData = await res.json();
+      return sentimentalData;
     } catch (error) {
       console.error("Error:", error);
     }

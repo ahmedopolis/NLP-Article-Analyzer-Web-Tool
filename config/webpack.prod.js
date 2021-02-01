@@ -2,12 +2,20 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: "./src/client/index.js",
-  devtool: "source-map",
   mode: "production",
-  watch: true,
+  optimization: {
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+  },
+  output: {
+    libraryTarget: "var",
+    library: "Client",
+  },
   module: {
     rules: [
       {
@@ -18,29 +26,25 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: (resourcePath, context) => {
+                return path.relative(path.dirname(resourcePath), context) + "/";
+              },
+            },
+          },
+          "css-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
         loader: "file-loader",
         exclude: /node_modules/,
       },
-      {
-        test: /\.svg$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              encoding: false,
-            },
-          },
-        ],
-      },
     ],
-  },
-  output: {
-    libraryTarget: "var",
-    library: "Client",
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -49,11 +53,8 @@ module.exports = {
       filename: "./index.html",
     }),
     new CleanWebpackPlugin({
-      // Simulate the removal of files
       dry: true,
-      // Write Logs to Console
       verbose: true,
-      // Automatically remove all unused webpack assets on rebuild
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false,
     }),

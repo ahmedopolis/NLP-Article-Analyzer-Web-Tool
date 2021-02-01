@@ -28,17 +28,6 @@ module.exports = {
         loader: "file-loader",
         exclude: /node_modules/,
       },
-      {
-        test: /\.svg$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              encoding: false,
-            },
-          },
-        ],
-      },
     ],
   },
   output: {

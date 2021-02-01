@@ -179,6 +179,30 @@ The file-loader resolves import/require() on a file into a url and emits the fil
 npm install file-loader --save-dev
 ```
 
+### Install mini-css-extract-plugin
+
+To install this plugin, use the following command:
+
+```bash
+npm i mini-css-extract-plugin
+```
+
+### Install terser-webpack-plugin
+
+To install this plugin that uses terser to minify the JS files, use the following command:
+
+```bash
+npm install terser-webpack-plugin --save-dev
+```
+
+### Install Optimize CSS Assets Webpack Plugin
+
+To install this plugin, use the following command:
+
+```bash
+npm install --save-dev optimize-css-assets-webpack-plugin
+```
+
 ## Examples
 
 ## Tools

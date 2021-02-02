@@ -1,13 +1,9 @@
-// Store path
-let path = require("path");
-
 // Load-in env variables
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config({ path: ".env" });
-}
+require("dotenv").config({ path: ".env" });
 
 // My Api key
-const localApiKey = process.env.API_KEy;
+const localApiKey = process.env.API_Key;
+console.log(`This is the api key for meaningcloud: ${localApiKey}.`);
 
 // Function to concatenate the api url for the nlp analysis
 function concatenateApiURL(userURL) {

@@ -7,6 +7,6 @@ import "./styles/footer.scss";
 import "./styles/form.scss";
 import "./styles/header.scss";
 
-import "./views/images/data-processing-image.jpg";
+import "./views/img/data-processing-image.jpg";
 
 export { handleSubmit };

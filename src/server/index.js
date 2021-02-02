@@ -1,5 +1,5 @@
 // Load-in env variables
-require("dotenv").config({ path: ".env" });
+require("dotenv").config();
 
 // My Api key
 const localApiKey = process.env.API_Key;

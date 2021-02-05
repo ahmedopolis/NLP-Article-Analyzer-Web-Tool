@@ -2,6 +2,12 @@ $primary-color: #5754ff;
 $secondary-color: #f2f2f2;
 $tertiary-color: darkmagenta;
 
+form {
+    display: flex;
+    justify-content:center;
+    flex-direction:column;
+}
+
 .form-title{
     color: $primary-color;
     font-weight: Bold;
@@ -10,10 +16,21 @@ $tertiary-color: darkmagenta;
 
 #submit-button{
     cursor: pointer;
+    background-color: $primary-color;
+    border-radius: 5px;
+    color: $secondary-color;
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+
+    &:hover {
+        background-color: $tertiary-color;
+    }
 }
 
 input {
     background-color: $primary-color;
+    border-radius: 5px;
     padding: 5px 20px;
     color: $secondary-color;
     font-family: 'Oswald', sans-serif;

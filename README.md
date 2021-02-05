@@ -203,6 +203,14 @@ To install this plugin, use the following command:
 npm install --save-dev optimize-css-assets-webpack-plugin
 ```
 
+### Install 'meaning-cloud'
+
+To install this plugin, use the following command:
+
+```bash
+npm install meaning-cloud --save
+```
+
 ## Examples
 
 ## Tools

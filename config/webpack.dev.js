@@ -8,9 +8,7 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 8080,
+    port: 8000,
   },
   module: {
     rules: [
@@ -31,11 +29,7 @@ module.exports = {
       },
     ],
   },
-  output: {
-    libraryTarget: "var",
-    library: "Client",
-    path: path.resolve(__dirname, "dist"),
-  },
+  stats: "verbose",
   plugins: [
     new HtmlWebPackPlugin({
       title: "Home",

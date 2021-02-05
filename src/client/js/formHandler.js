@@ -1,67 +1,54 @@
-// Function to handle user data and interface update
-function handleSubmit(event) {
-  event.preventDefault();
+function runAction(event) {
+  // Event listener to add function to existing HTML DOM element
+  document
+    .getElementById("submit-button")
+    .addEventListener("click", handleSubmit(event));
 
-  let data = {};
-  let form = document.querySelector("form");
-  let urlInput = document.getElementById("text-url").value;
+  // Function to handle user data and interface update
+  function handleSubmit(event) {
+    event.preventDefault();
 
-  data = {
-    userURL: urlInput,
-  };
+    const urlInput = document.getElementById("text-url").value;
 
-  let dataURL = "http://localhost:8080/apiData";
+    let localData = {
+      userInputURL: urlInput,
+    };
 
-  async function processUserData() {
-    await postData(dataURL, data).then(async () => {
-      await updateUserInterface(dataURL);
-    });
-  }
+    let localDataURL = "http://localhost:8081/apiData";
 
-  processUserData();
-  urlInput = "";
-  form.reset();
-
-  /* Function to POST data */
-  async function postData(url = "", data = {}) {
-    const res = await fetch(url, {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify({
-        userURL: data.userURL,
-      }),
-    });
-    try {
-      const newData = await res.json();
-      return newData;
-    } catch (error) {
-      console.error("Error:", error);
+    async function processUserData(dataURL, data) {
+      await postData(dataURL, data).then(async () => {
+        await updateUserInterface(dataURL);
+      });
     }
-  }
 
-  /* Function to GET Project Data */
-  async function getData(url = "") {
-    const res = await fetch(url);
-    try {
-      const sentimentalData = await res.json();
-      return sentimentalData;
-    } catch (error) {
-      console.error("Error:", error);
+    processUserData(localDataURL, localData);
+
+    /* Function to POST data */
+    async function postData(url = "", data) {
+      const res = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+        body: JSON.stringify({
+          userURL: data.userInputURL,
+        }),
+      });
+      try {
+        const newData = await res.json();
+        return newData;
+      } catch (error) {
+        console.error("Error:", error);
+      }
     }
-  }
 
-  /* Function fetch sentimental data and to update UI respectively */
-  async function updateUserInterface(dataURL) {
-    let results = document.querySelector("#results-section");
-    let getUserData = await getData(dataURL).then(async (data) => {
-      results.innerHTML = `<div class="form-title">
+    /* Function fetch sentimental data and to update UI respectively */
+    async function updateUserInterface(dataURL) {
+      let results = document.querySelector("#results-section");
+      let getUserData = await getData(dataURL).then(async (data) => {
+        results.innerHTML = `<div class="form-title">
           <h2>Form Results:</h2>
       </div>
       <div id="results">
@@ -84,9 +71,21 @@ function handleSubmit(event) {
               <p><strong>Irony: </strong>${data.irony}</p>
           </div>
       </div>`;
-    });
-    return getUserData;
+      });
+      return getUserData;
+    }
+
+    /* Function to GET Project Data */
+    async function getData(url = "") {
+      const res = await fetch(url);
+      try {
+        const sentimentalData = await res.json();
+        return sentimentalData;
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
   }
 }
 
-export { handleSubmit };
+export { runAction };

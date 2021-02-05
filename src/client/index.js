@@ -1,4 +1,5 @@
-import { handleSubmit } from "./js/formHandler";
+import { runAction } from "./js/formHandler";
+import { validURL } from "./js/validURL";
 
 import "./styles/about.scss";
 import "./styles/resets.scss";
@@ -9,4 +10,4 @@ import "./styles/header.scss";
 
 import "./views/img/data-processing-image.jpg";
 
-export { handleSubmit };
+export { runAction, validURL };

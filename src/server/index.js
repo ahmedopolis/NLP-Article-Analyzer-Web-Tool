@@ -1,9 +1,10 @@
 // Load-in env variables
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 // My Api key
 const localApiKey = process.env.API_Key;
-console.log(`This is the api key for meaningcloud: ${localApiKey}.`);
+//console.log(`This is the api key for meaningcloud: ${localApiKey}.`);
 
 // Function to concatenate the api url for the nlp analysis
 function concatenateApiURL(userURL) {
@@ -58,19 +59,23 @@ app.post("/apiData", addSentimentalData);
 function addSentimentalData(req, res) {
   const userInput = req.body.userURL;
   const fullApiURL = concatenateApiURL(userInput);
-  fetchSentimentalData(fullApiURL).then((data) => {
-    const convertedPolarity = polarityChecker(data.score_tag);
-    projectData = {
-      model: data.model,
-      polarity: convertedPolarity,
-      score_tag: data.score_tag,
-      agreement: data.agreement,
-      subjectivity: data.subjectivity,
-      confidence: data.confidence,
-      irony: data.irony,
-    };
-    res.send(projectData);
-  });
+  console.log(userInput);
+  fetchSentimentalData(fullApiURL)
+    .then((data) => {
+      const convertedPolarity = polarityChecker(data.score_tag);
+      projectData = {
+        model: data.model,
+        polarity: convertedPolarity,
+        score_tag: data.score_tag,
+        agreement: data.agreement,
+        subjectivity: data.subjectivity,
+        confidence: data.confidence,
+        irony: data.irony,
+      };
+    })
+    .then((newProjectData) => {
+      res.send(newProjectData);
+    });
 }
 
 // Function to fetch api response
@@ -121,7 +126,7 @@ function sendData(req, res) {
 }
 
 // Setup server
-const port = 8080;
+const port = 8081;
 const hostName = "localhost";
 
 // Spin up the server

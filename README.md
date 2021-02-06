@@ -94,6 +94,14 @@ Use the following command to add a light-weight module that brings window.fetch 
 npm install node-fetch
 ```
 
+### Install cors
+
+Use the following line, to add cors.
+
+```bash
+npm i cors morgan
+```
+
 ### Add the static module bundler, namely 'Webpack'
 
 Install Webpack using the following command.
@@ -108,11 +116,11 @@ In package.json, add a build npm script as:
 
 ```json
 "scripts": {
-    "build": "webpack",
+    "test": "jest",
+    "start": "node src/server/index.js",
     "build-prod": "webpack --config config/webpack.prod.js",
-    "build-dev": "webpack-dev-server  --config config/webpack.dev.js --open",
-    "devStart": "webpack serve  --config config/webpack.dev.js --open"
-},
+    "build-dev": "webpack serve --config config/webpack.dev.js --open --hot --port 8000"
+  },
 ```
 
 ### Install 'webpack-dev-server'
@@ -121,22 +129,6 @@ To use webpack with a development server that provides live reloading. This shou
 
 ```bash
 npm install webpack-dev-server --save-dev
-```
-
-### Add to npm scripts
-
-In package.json, add a build npm script as:
-
-```json
-"scripts": {
-"start:dev": "webpack-dev-server"
-},
-```
-
-And run the following in your terminal/console:
-
-```bash
-npm run start:dev
 ```
 
 ### Install 'Babel'
@@ -208,6 +200,41 @@ npm install --save-dev optimize-css-assets-webpack-plugin
 To install this plugin, use the following command:
 
 ```bash
+npm install meaning-cloud --save
+```
+
+### To reset user defaults
+
+To reset the configs, use the second command to make global resets.
+
+```bash
+echo "" > $(npm config get userconfig)
+npm config edit
+echo "" > $(npm config get globalconfig)
+npm config --global edit
+```
+
+### List of all needed npm commands
+
+All commands needed are found below:
+
+```bash
+npm init
+npm i node express
+npm install dotenv
+npm i cors
+npm install --save-dev jest
+npm install node-fetch
+npm i webpack webpack-cli
+npm install webpack-dev-server --save-dev
+npm i -D @babel/core @babel/preset-env babel-loader
+npm i -D html-webpack-plugin
+npm i -D clean-webpack-plugin
+npm i -D style-loader node-sass css-loader sass-loader
+npm install file-loader --save-dev
+npm i mini-css-extract-plugin
+npm install terser-webpack-plugin --save-dev
+npm install --save-dev optimize-css-assets-webpack-plugin
 npm install meaning-cloud --save
 ```
 

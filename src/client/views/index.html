@@ -50,17 +50,14 @@
         <div class="form-title">
           <h2>Do you want to conduct sentimental analysis on your text?</h2>
         </div>
-        <form onsubmit="Client.handleSubmit(event)">
+        <form>
           <input
             id="text-url"
             type="text"
             name="url"
-            value=""
             placeholder="Please enter your text's URL"
           />
-          <div>
-            <button id="submit-button">SUBMIT</button>
-          </div>
+          <input id="submit-button" type="submit" value="Submit" />
         </form>
       </section>
       <section id="results-section">

@@ -1,4 +1,5 @@
 function runAction(event) {
+  console.log("Hi!");
   // Event listener to add function to existing HTML DOM element
   document
     .getElementById("submit-button")
@@ -9,6 +10,10 @@ function runAction(event) {
     event.preventDefault();
 
     const urlInput = document.getElementById("text-url").value;
+    console.log(urlInput);
+
+    //validURL(value);
+    console.log("::: Form Submitted :::");
 
     let localData = {
       userInputURL: urlInput,
@@ -28,16 +33,17 @@ function runAction(event) {
     async function postData(url = "", data) {
       const res = await fetch(url, {
         method: "POST",
+        credentials: "same-origin",
         mode: "cors",
         headers: {
-          "Content-Type": "application/json;charset=UTF-8",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           userURL: data.userInputURL,
         }),
       });
       try {
-        const newData = await res.json();
+        const newData = res;
         return newData;
       } catch (error) {
         console.error("Error:", error);
@@ -87,5 +93,16 @@ function runAction(event) {
     }
   }
 }
+
+function loadStarter() {
+  if (document.readyState === "complete") {
+    window.addEventListener("load", runAction);
+  } else {
+    window.addEventListener("load", runAction);
+    return () => window.removeEventListener("load", runAction);
+  }
+}
+
+loadStarter();
 
 export { runAction };

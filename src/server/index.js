@@ -58,15 +58,17 @@ app.post("/apiData", addSentimentalData);
 // Combine data from user inputs and resulting api response
 function addSentimentalData(req, res) {
   const userInput = req.body.userURL;
+  console.log(userInput);
   const fullApiURL = concatenateApiURL(userInput);
   console.log(userInput);
   fetchSentimentalData(fullApiURL)
     .then((data) => {
-      const convertedPolarity = polarityChecker(data.score_tag);
+      // if (data.score_tag !== null) {
+      //   const convertedPolarity = polarityChecker(data.score_tag);
+      // }
       projectData = {
         model: data.model,
-        polarity: convertedPolarity,
-        score_tag: data.score_tag,
+        polarity: data.score_tag,
         agreement: data.agreement,
         subjectivity: data.subjectivity,
         confidence: data.confidence,

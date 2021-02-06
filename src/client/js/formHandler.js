@@ -17,9 +17,11 @@ function runAction() {
 
     // Async function to chain promises
     async function processUserData(dataURL, data) {
-      await postData(dataURL, data).then(async () => {
-        await updateUserInterface(dataURL);
+      let postDataReturn = await postData(dataURL, data).then(async () => {
+        let UpdateUIReturn = await updateUserInterface(dataURL);
+        console.log(UpdateUIReturn);
       });
+      console.log(postDataReturn);
     }
 
     /* Function to POST data */

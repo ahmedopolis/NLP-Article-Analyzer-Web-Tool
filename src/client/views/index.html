@@ -60,31 +60,7 @@
           <input id="submit-button" type="submit" value="Submit" />
         </form>
       </section>
-      <section id="results-section">
-        <!-- <div class="form-title">
-          <h2>Form Results:</h2>
-        </div>
-        <div id="results">
-          <div id="model-result">
-            <p><strong>Models used: </strong>"neutral"</p>
-          </div>
-          <div id="polarity-result">
-            <p><strong>Models used: </strong>"polarity"</p>
-          </div>
-          <div id="agreement-result">
-            <p><strong>Agreement: </strong>"neutral"</p>
-          </div>
-          <div id="subjectivity-result">
-            <p><strong>Subjectivity: </strong>"neutral"</p>
-          </div>
-          <div id="confidence-result">
-            <p><strong>Confidence: </strong>"neutral"</p>
-          </div>
-          <div id="irony-result">
-            <p><strong>Irony: </strong>"neutral"</p>
-          </div>
-        </div> -->
-      </section>
+      <section id="results-section"></section>
     </main>
     <!-- Footer of page  -->
     <footer>
@@ -92,5 +68,15 @@
         2021 &#169; ALFRED.NLP INC. All Right reserved.
       </div>
     </footer>
+    <!-- Script for 'serviceWorker'  -->
+    <script>
+      // It checks that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
   </body>
 </html>

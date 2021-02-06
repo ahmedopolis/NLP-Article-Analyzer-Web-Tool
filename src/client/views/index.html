@@ -40,8 +40,8 @@
             enriched and structured news feeds and insights. We provide 26
             unique filters and searchable tags along with advanced analytics
             functions that provide enhanced search and analysis. We always put
-            developer experience first. Get started in minutes with our SDKs and
-            comprehensive docs!
+            developer experience first. Get started in minutes with our SDK's
+            and comprehensive docs!
           </p>
         </div>
         <div id="about-image"></div>
@@ -50,15 +50,17 @@
         <div class="form-title">
           <h2>Do you want to conduct sentimental analysis on your text?</h2>
         </div>
-        <form>
+        <form onsubmit="Client.handleSubmit(event)">
           <input
             id="text-url"
             type="text"
-            name="input[url]"
+            name="url"
             value=""
             placeholder="Please enter your text's URL"
           />
-          <button id="submit-button">SUBMIT</button>
+          <div>
+            <button id="submit-button">SUBMIT</button>
+          </div>
         </form>
       </section>
       <section id="results-section">

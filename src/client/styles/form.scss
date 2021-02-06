@@ -22,8 +22,6 @@ form {
     font-family: 'Oswald', sans-serif;
     font-size: 25px;
     font-weight: bold;
-    padding-left: 325px;
-    padding-right: 325px;
 
     &:hover {
         background-color: $tertiary-color;
@@ -40,7 +38,7 @@ input {
     font-weight: bold;
     width: 100%;
     line-height: 16px;
-    margin: 10px 0;
+    margin: 5px 0;
 
     &:hover {
         background-color: $tertiary-color;

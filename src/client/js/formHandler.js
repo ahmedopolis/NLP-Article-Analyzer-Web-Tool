@@ -1,23 +1,15 @@
-function runAction(event) {
+function runAction() {
   console.log("Hi!");
   // Event listener to add function to existing HTML DOM element
-  document
-    .getElementById("submit-button")
-    .addEventListener("click", handleSubmit(event));
-
-  // Function to handle user data and interface update
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const urlInput = document.getElementById("text-url").value;
+  const submitButton = document.querySelector("#submit-button");
+  submitButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const urlInput = document.querySelector("#text-url").value;
     console.log(urlInput);
 
     //validURL(value);
     console.log("::: Form Submitted :::");
-
-    let localData = {
-      userInputURL: urlInput,
-    };
 
     let localDataURL = "http://localhost:8081/apiData";
 
@@ -27,7 +19,7 @@ function runAction(event) {
       });
     }
 
-    processUserData(localDataURL, localData);
+    processUserData(localDataURL, { url: urlInput });
 
     /* Function to POST data */
     async function postData(url = "", data) {
@@ -38,9 +30,7 @@ function runAction(event) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          userURL: data.userInputURL,
-        }),
+        body: JSON.stringify(data),
       });
       try {
         const newData = res;
@@ -59,10 +49,10 @@ function runAction(event) {
       </div>
       <div id="results">
           <div id="model-result">
-              <p><strong>Models used: </strong>${data.model}</p>
+              <p><strong>Model: </strong>${data.model}</p>
           </div>
           <div id="polarity-result">
-              <p><strong>Models used: </strong>${data.polarity}</p>
+              <p><strong>Polarity: </strong>${data.polarity}</p>
           </div>
           <div id="agreement-result">
               <p><strong>Agreement: </strong>${data.agreement}</p>
@@ -91,7 +81,7 @@ function runAction(event) {
         console.error("Error:", error);
       }
     }
-  }
+  });
 }
 
 function loadStarter() {

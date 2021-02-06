@@ -61,19 +61,15 @@ function addSentimentalData(req, res) {
   const fullApiURL = concatenateApiURL(userInput);
   fetchSentimentalData(fullApiURL)
     .then((data) => {
-      if (data.score_tag !== null) {
-        const convertedPolarity = polarityChecker(data.score_tag);
-        projectData = {
-          model: data.model,
-          polarity: convertedPolarity,
-          agreement: data.agreement,
-          subjectivity: data.subjectivity,
-          confidence: data.confidence,
-          irony: data.irony,
-        };
-      } else {
-        alert("Error");
-      }
+      const convertedPolarity = polarityChecker(data.score_tag);
+      projectData = {
+        model: data.model,
+        polarity: convertedPolarity,
+        agreement: data.agreement,
+        subjectivity: data.subjectivity,
+        confidence: data.confidence,
+        irony: data.irony,
+      };
     })
     .then((newProjectData) => {
       res.send(newProjectData);

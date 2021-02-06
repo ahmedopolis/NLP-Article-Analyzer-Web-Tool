@@ -1,25 +1,26 @@
+import { validURL } from "./validURL";
 function runAction() {
-  console.log("Hi!");
-  // Event listener to add function to existing HTML DOM element
   const submitButton = document.querySelector("#submit-button");
   submitButton.addEventListener("click", async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const urlInput = document.querySelector("#text-url").value;
-    console.log(urlInput);
 
-    //validURL(value);
     console.log("::: Form Submitted :::");
+    const urlInput = document.querySelector("#text-url").value;
 
-    let localDataURL = "http://localhost:8081/apiData";
+    if (validURL(urlInput)) {
+      let localDataURL = "http://localhost:8081/apiData";
+      processUserData(localDataURL, { url: urlInput });
+    } else {
+      console.log("An invalid URL was entered.");
+    }
 
+    // Async function to chain promises
     async function processUserData(dataURL, data) {
       await postData(dataURL, data).then(async () => {
         await updateUserInterface(dataURL);
       });
     }
-
-    processUserData(localDataURL, { url: urlInput });
 
     /* Function to POST data */
     async function postData(url = "", data) {
@@ -84,6 +85,7 @@ function runAction() {
   });
 }
 
+// Function to append the 'runAction' function at after load.
 function loadStarter() {
   if (document.readyState === "complete") {
     window.addEventListener("load", runAction);

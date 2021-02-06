@@ -9,11 +9,39 @@ The herein repository host the necessary assets for a NLP web tool called "Alfre
 
 1. [Design](#Design)
 2. [Instructions](#Instructions)
+   1. [Download repository files](#Download-repository-files)
+   2. [Setup environment](#Setup-environment)
+   3. [Add modules to setup server](#Add-module-to-setup-server)
+   4. [Conduct npm audit](#Conduct-npm-audit)
+   5. [Add 'dotenv' module](#Add-'dotenv'-module)
+   6. [Add the following 'start' script in 'package.json'](#Add-the-following-'start'-script-in-'package.json')
+   7. [Add testing via 'Jest' for unit-testing](#Add-testing-via-'Jest'-for-unit-testing)
+   8. [Install 'node-fetch'](#Install-'node-fetch')
+   9. [Install 'cors'](#Add-the-OpenWeatherMap-Api-key)
+   10. [Add the static module bundler, namely 'Webpack'](#Add-the-static-module-bundler,-namely-'Webpack')
+   11. [Add a build npm script](#Add-a-build-npm-script)
+   12. [Install 'webpack-dev-server'](#Install-'webpack-dev-server')
+   13. [Install 'Babel'](#Install-'Babel')
+   14. [Install 'HtmlWebPackPlugin'](#Install-'HtmlWebPackPlugin')
+   15. [Install 'CleanWebpackPlugin'](#Install-'CleanWebpackPlugin')
+   16. [Install 'style-loader'](#Install-'style-loader')
+   17. [Install 'file-loader'](#Install-'file-loader')
+   18. [Install mini-css-extract-plugin](#Install-'mini-css-extract-plugin')
+   19. [Install 'terser-webpack-plugin'](#Install-'terser-webpack-plugin')
+   20. [Install Optimize CSS Assets Webpack Plugin](#Install-Optimize-CSS-Assets-Webpack-Plugin)
+   21. [To reset user defaults](#To-reset-user-defaults)
+   22. [Add 'serviceWorker'](#Add-'serviceWorker')
+   23. [List of all needed npm commands](#List-of-all-needed-npm-commands)
 3. [Examples](#Examples)
+   1. [Example of hovering page](#Example-of-hovering-page)
+   2. [Example of input data and seeing UI update](#Example-of-input-data-and-seeing-UI-update)
+   3. [Example of error-handling](#Example-of-error-handling)
 4. [Tools](#Tools)
 5. [License](#License)
 
 ## Design
+
+The “Alfred NLP Analyzer” prompts users to enter the URL containing their article meant to be analyzed. Using the meaningcloud’s API, the application uses it to conduct natural language processing on texts. More precisely, it parses the texts and uses sentimental analysis methods. The technologies used for this asynchronous application include HTML, SASS, and Vanilla JavaScript on its front-end. The back-end uses Node.js as well as Express.js. Jest is used for the unit-testing, and the static module bundler used is Webpack. Matt Visiwig produced the header’s and footer’s background from SVG Backgrounds.
 
 ## Instructions
 
@@ -68,7 +96,7 @@ Use the following command line to add the 'dotenv' module.
 npm install dotenv
 ```
 
-### Add the following 'start' script in package.json
+### Add the following 'start' script in 'package.json'
 
 Replace the following command:
 
@@ -78,7 +106,7 @@ Replace the following command:
 },
 ```
 
-### Add testing library (Jest) for unit-testing
+### Add testing via 'Jest' for unit-testing
 
 Use the following line, to install the 'jest' library as a development dependency. As unit testing, is not conducted in production mode.
 
@@ -86,7 +114,7 @@ Use the following line, to install the 'jest' library as a development dependenc
 npm install --save-dev jest
 ```
 
-### Install node-fetch
+### Install 'node-fetch'
 
 Use the following command to add a light-weight module that brings window.fetch to Node.js.
 
@@ -94,7 +122,7 @@ Use the following command to add a light-weight module that brings window.fetch 
 npm install node-fetch
 ```
 
-### Install cors
+### Install 'cors'
 
 Use the following line, to add cors.
 
@@ -155,7 +183,7 @@ Use the following command, to install the 'CleanWebpackPlugin'.
 npm i -D clean-webpack-plugin
 ```
 
-### Install a style-loader
+### Install 'style-loader'
 
 To convert the sass files to css files for the browser to process, use the following command line.
 
@@ -163,7 +191,7 @@ To convert the sass files to css files for the browser to process, use the follo
 npm i -D style-loader node-sass css-loader sass-loader
 ```
 
-### Install file-loader
+### Install 'file-loader'
 
 The file-loader resolves import/require() on a file into a url and emits the file into the output directory.
 
@@ -171,7 +199,7 @@ The file-loader resolves import/require() on a file into a url and emits the fil
 npm install file-loader --save-dev
 ```
 
-### Install mini-css-extract-plugin
+### Install 'mini-css-extract-plugin'
 
 To install this plugin, use the following command:
 
@@ -179,7 +207,7 @@ To install this plugin, use the following command:
 npm i mini-css-extract-plugin
 ```
 
-### Install terser-webpack-plugin
+### Install 'terser-webpack-plugin'
 
 To install this plugin that uses terser to minify the JS files, use the following command:
 
@@ -214,6 +242,14 @@ echo "" > $(npm config get globalconfig)
 npm config --global edit
 ```
 
+### Add 'serviceWorker'
+
+Add 'workbox-webpack-plugin via the following command:
+
+```bash
+npm install workbox-webpack-plugin --save-dev
+```
+
 ### List of all needed npm commands
 
 All commands needed are found below:
@@ -236,9 +272,22 @@ npm i mini-css-extract-plugin
 npm install terser-webpack-plugin --save-dev
 npm install --save-dev optimize-css-assets-webpack-plugin
 npm install meaning-cloud --save
+npm install workbox-webpack-plugin --save-dev
 ```
 
 ## Examples
+
+### Example of hovering page
+
+![Hover Page](video/AlFRED.NLP-hover-page.gif)
+
+### Example of input data and seeing UI update
+
+![Generate Data](video/AlFRED.NLP-succesful-run.gif)
+
+### Example of error-handling
+
+![Error handling](video/AlFRED.NLP-error-handling.gif)
 
 ## Tools
 

@@ -58,7 +58,11 @@ app.post("/apiData", addSentimentalData);
 // Combine data from user inputs and resulting api response
 function addSentimentalData(req, res) {
   const userInput = req.body.url;
+  console.log(`::: The user's URL is the following: ${userInput}. :::`);
   const fullApiURL = concatenateApiURL(userInput);
+  console.log(
+    `::: The concatenated API's URL is the following: ${fullApiURL}. :::`
+  );
   fetchSentimentalData(fullApiURL)
     .then((data) => {
       const convertedPolarity = polarityChecker(data.score_tag);
@@ -70,10 +74,22 @@ function addSentimentalData(req, res) {
         confidence: data.confidence,
         irony: data.irony,
       };
+      printProjectData(projectData);
     })
     .then((newProjectData) => {
       res.send(newProjectData);
     });
+}
+
+// Function to print project data
+function printProjectData(projectData) {
+  console.log("::: Data Requested Loaded :::");
+  console.log(`Model Type -> ${projectData.model}.`);
+  console.log(`Polarity -> ${projectData.polarity}.`);
+  console.log(`Agreement -> ${projectData.agreement}.`);
+  console.log(`Subjectivity-> ${projectData.subjectivity}.`);
+  console.log(`Confidence -> ${projectData.confidence}.`);
+  console.log(`Irony -> ${projectData.irony}.`);
 }
 
 // Function to fetch api response

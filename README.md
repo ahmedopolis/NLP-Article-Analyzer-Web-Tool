@@ -291,7 +291,7 @@ npm install workbox-webpack-plugin --save-dev
 
 ## Tools
 
-This webpage uses the following technologies for the front-end: HTML, SASS, SASS and JavaScript (Vanilla). It also uses JavaScript on the server-side with Node.js and Express.js. The static module bundle used is Webpack.
+This webpage uses the following technologies for the front-end: HTML, SASS, and JavaScript (Vanilla). It also uses JavaScript on the server-side with Node.js and Express.js. The static module bundle used is Webpack.
 
 ## License
 
